@@ -1,0 +1,15 @@
+<!-- upload controller -->
+<div class="upload" ng-controller="upload">
+    <h1 class="mainTitle">upload</h1>
+    <form method="post" ng-submit="submit()">
+        <div class="upload-form">
+            <input ng-model="title" type="text" name="title" placeholder="title" value="" />
+            <input ng-model="username" type="text" name="username" placeholder="username" value="" />
+            <input ng-model="description" type="text" name="description" placeholder="description" value="" />
+        </div>
+        <div class="upload-form">
+            <input class="chooseFile" ng-model="file" type="file" name="file" placeholder="file" value="" />
+            <button class="more" type="submit" name="button">Upload</button>
+        </div>
+    </form>
+</div>
