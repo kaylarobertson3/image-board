@@ -1,13 +1,13 @@
 // REQUIRE MODULES AND FILES ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 const express = require('express');
 const app = express();
-const db = require('./sql/db.js');
-const s3 = require('./sql/s3.js');
+const db = require('./config/db.js');
+const s3 = require('./config/s3.js');
 var multer = require('multer');
 var uidSafe = require('uid-safe');
 var path = require('path');
 var bodyParser = require('body-parser');
-const config = require("./sql/config.json");
+const config = require("./config/config.json");
 
 app.use(bodyParser.urlencoded({
     extended: false
