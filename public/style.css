@@ -467,6 +467,11 @@ input {
     margin: 2rem 0 0 0;
     padding: 5px 0 0 0;
 }
+
+.msg {
+    text-align: center;
+}
+
 /*UPLOAD =============================== */
 
 /*about state*/

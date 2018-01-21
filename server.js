@@ -55,7 +55,7 @@ app.post('/upload', uploader.single('file'), function(req, res) {
         s3.uploadToS3(req.file).then(function() {
             db.uploadPhoto(req.body.title, req.body.username, req.file.filename, req.body.description)
                 .then(results => {
-                    console.log("uploadphoto to sql results: ", results);
+                    console.log("upload succesful");
                     res.json({
                         success: true,
                         url: config.s3url + req.file.filename,
@@ -80,7 +80,6 @@ app.post('/upload', uploader.single('file'), function(req, res) {
 
 //GET SINGLE IMAGE info
 app.get('/singleImage/:id', (req, res) => {
-    console.log("in route single/image/id");
     db.getSingleImage(req.params.id)
         .then((results) => {
             res.json(results[0]);
@@ -92,8 +91,9 @@ app.get('/singleImage/:id', (req, res) => {
 
 //ADD COMMENTS FOR SINGLE IMAGE
 app.post('/singleImage/:id/addComment', (req, res) => {
-    console.log("********", req.params.id, req.body.user, req.body.comment);
-    db.addComment(req.params.imageId, req.body.user, req.body.comment).then(() => {
+    console.log("app.post addcomment", req.body.imageId, req.body.user, req.body.comment);
+    db.addComment(req.body.imageId, req.body.user, req.body.comment).then(() => {
+
         res.json({
             success: true
         });
@@ -105,11 +105,10 @@ app.post('/singleImage/:id/addComment', (req, res) => {
 
 //GET COMMENTS ON SINGLE IMAGE
 app.get('/singleImage/:id/addComment', (req,res) => {
-    console.log("what we're passing to getComments: ", req.params.id);
     db.getComments(req.params.id)
         .then((results) => {
+            console.log("app.get these comments ", results);
             res.json(results);
-            console.log("inside getcomments get route", results);
         }).catch((err) => {
             console.log("error in get comments get route ", err);
         });

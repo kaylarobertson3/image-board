@@ -60,9 +60,8 @@ location.hash = ('/');
                 transformRequest: angular.identity
             })
                 .then((response) => {
-                    console.log("upload status:", response);
                     var msg = response.data.msg;
-                    $scope.msg = "Upload status: " + msg;
+                    $scope.msg = msg;
                     $scope.username = '';
                     $scope.title = '';
                     $scope.description = '';
@@ -71,7 +70,7 @@ location.hash = ('/');
                     console.log("error uploading photo: ", response);
                     var msg = "error uploading photo: " + response.err;
                     $scope.msg = msg;
-                })
+                });
         };
     });
 
@@ -92,7 +91,6 @@ location.hash = ('/');
     // SINGLE IMAGE CONTROLLER
     myApp.controller('singleImage', function($scope, $http, $location, $stateParams) {
         $http.get('/singleImage/' + $stateParams.imageId).then(function(results) {
-            console.log("results", results);
             $scope.singleImage = results.data.image;
             $scope.username = results.data.username;
             $scope.title = results.data.title;
@@ -104,22 +102,22 @@ location.hash = ('/');
 
 
     // ADD COMMENT CONTROLLER
-    myApp.controller('addComment', function($scope, $http, $stateParams) {
+    myApp.controller('addComment', function($scope, $http, $stateParams, $location) {
 
         $scope.addComment = function() {
             var user = $scope.user;
             var comment = $scope.comment;
             var imageId = $stateParams.imageId;
-            console.log('values for add coment POST', user, comment, imageId);
+            console.log('about to comment with', imageId, user, comment);
             $http({
-                url: "/singleImage/:id/addComment", //should i add + $stateParams.imageId?
+                url: "/singleImage/${imageId}/addComment", //should i add + $stateParams.imageId?
                 method: 'POST',
                 data: {
-                    user, comment, imageId
+                    imageId, user, comment
                 }
             })
                 .then(results => {
-                    console.log("commented with :", results.data);
+                    console.log("results of addcoment controller", results);
                     $scope.imageId = results.data.imageId;
                     $scope.comments = results.data;
                 }).catch(err => {
@@ -145,7 +143,6 @@ location.hash = ('/');
             });
     });
 
-
     // ABOUT CONTROLLER
     myApp.controller('about', function($scope, $http) {
         $http.get('/about').then(function(data) {
@@ -154,19 +151,5 @@ location.hash = ('/');
         });
     });
 
-    // navli - where does this go?
-    // angular.module('myApp.nav', [])
-    //     .directive('gtNav', function(){
-    //         return {
-    //             templateUrl: 'app/nav/nav.html',
-    //             restrict: 'E',
-    //             controller: function($scope){
-    //                 $scope.showClick = function(e){
-    //                     console.log(e.currentTarget);
-    //                 }
-    //             }
-    //         }
-    //     });
-
-    //End of large function with all controllers
+//End of large function with all controllers
 })();

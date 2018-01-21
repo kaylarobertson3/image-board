@@ -27,7 +27,6 @@ exports.uploadPhoto = function(title, username, filename, description) {
 
 // Get singleimage info
 exports.getSingleImage = function(id) {
-    console.log("in getSingleImage db", id);
     return db.query(
         `SELECT * FROM images WHERE id = $1`,
         [id]
@@ -37,18 +36,18 @@ exports.getSingleImage = function(id) {
         });
         return results.rows;
     }).catch((err) => {
-        console.log(err);
+        console.log("error in db.getSingleImage ", err);
     });
 };
 
 
 //ADD Comment
 exports.addComment = function(imageId, username, comment) {
-    console.log("=====Inside add comment. commenting with:", imageId, username, comment);
+    console.log("=====Inside db.addComment with:", imageId, username, comment);
     return db.query(`INSERT INTO comments (imageId, username, comment) VALUES ($1, $2, $3)`, [imageId, username, comment])
         .then((results) => {
-            console.log("comment was added to db");
-            return results.rows;
+            console.log("commented with: ", results);
+            // return results.rows;
         }).catch((err) => {
             console.log("error in addComment db", err);
         });
@@ -57,9 +56,9 @@ exports.addComment = function(imageId, username, comment) {
 
 //GET COMMENTS ON SINGLE IMAGE
 exports.getComments = function(imageId) {
-    return db.query(`SELECT * FROM comments WHERE id = $1`, [imageId]
+    return db.query(`SELECT * FROM comments WHERE imageId = $1`, [imageId]
     ).then((results) => {
-        console.log("results from getcomments db: ", results.rows);
+        console.log("results from getComments db: ", results.rows);
         return results.rows;
     }).catch((err) => {
         console.log("error in getComments db", err);
