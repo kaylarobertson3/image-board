@@ -5,7 +5,7 @@
 
 html {
     /*background-color: #f0f0f0;*/
-    background: url('topography.png');
+    background: url('geometry2.png');
 }
 
 #body {
@@ -39,16 +39,18 @@ html {
 
 .mainTitle {
     /*text-transform: uppercase;*/
-    letter-spacing: 10px;
+    letter-spacing: 2px;
     font-weight: 700;
-    font-size: 80px;
-    padding: 1rem 2rem 3rem 2rem;
-    text-align: center;
+    font-size: 30px;
+    padding: 1rem 2rem 1rem 0rem;
+    text-align: left;
+    text-transform: uppercase;
 }
+
 
 @media screen and (max-width: 699px) {
     .mainTitle {
-        font-size: 60px;
+        font-size: 20px;
     }
 }
 
@@ -480,15 +482,15 @@ input {
 
 h2 {
     font-weight: 400;
-    font-size: 1.5rem;
-    padding: .5rem 0 2rem 3rem;
-    max-width: 800px;
+    text-align: left;
+    font-size: 20px;
     line-height: 2rem;
+    margin: 0;
 }
 
 h2 span {
     font-weight: 700;
-    padding-right: 1rem;
+    /* padding-right: 1rem; */
 }
 /*footer*/
 

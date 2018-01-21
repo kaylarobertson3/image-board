@@ -1,7 +1,7 @@
 <!doctype html>
 
 <head>
-    <title>Image Board</title>
+    <title>Berlin Tyopgraphy</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.2/angular-ui-router.min.js"></script>
@@ -18,41 +18,45 @@
 
         <div id="allFlex">
 
-        <!-- Opens menu -->
-        <div class="opensMenu">
-            <img id="menu-icon" class="hover" src="/menu.svg" alt="menu" /></img>
-        </div>
-
-        <!-- Hidden menu -->
-        <div id="menu">
-            <a href="#" class="hover secondx"><i class="fa fa-times-circle fa-1x"  aria-hidden="true"></i></a>
-            <div class="nav">
-                <p class="navList">
-                    <a ui-sref="recentImages">home</a>
-                </p>
-                <p class="navList">
-                    <a ui-sref="about">about</a>
-                </p>
-                <p class="navList">
-                    <a ui-sref="upload">upload</a>
-                </p>
+            <!-- Opens menu -->
+            <div class="opensMenu">
+                <img id="menu-icon" class="hover" src="/menu.svg" alt="menu" /></img>
             </div>
-        </div>
 
-        <div class="views" ui-view="main">
+            <!-- Hidden menu -->
+            <div id="menu">
+                <a href="#" class="hover secondx"><i class="fa fa-times-circle fa-1x"  aria-hidden="true"></i></a>
+                <div class="nav">
+                    <p class="navList">
+                        <a ui-sref="recentImages">home</a>
+                    </p>
+                    <p class="navList">
+                        <a ui-sref="about">about</a>
+                    </p>
+                    <p class="navList">
+                        <a ui-sref="upload">upload</a>
+                    </p>
+                </div>
+            </div>
+
+            <div class="views" ui-view="main">
 
         </div>
 
         <!-- Footer -->
         <footer>
-        <a href="http://kaylarobertsondesign.com/"><p class="hover">&copy; Kayla Robertson 2017</p></a>
+            <a href="http://kaylarobertsondesign.com/">
+                <p class="hover">&copy; Kayla Robertson 2017</p>
+            </a>
         </footer>
+
     </div>
+
 </div>
 
-        <!-- End hidden div (everything) -->
     <script src="https://use.fontawesome.com/a458eb80ec.js"></script>
     <script src="./routes.js"></script>
     <script src="./script.js"></script>
     <script src="https://use.fontawesome.com/eeba89f067.js"></script>
+
 </body>

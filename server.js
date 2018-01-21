@@ -40,9 +40,9 @@ var uploader = multer({
 });
 
 
-// ROUTES ~~~~~~~
+// ROUTES ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-// GET RECENT IMAGES - this route makes a DB query.
+// GET RECENT IMAGES
 app.get('/images', (req, res) => {
     db.getRecentImages().then(results => {
         res.json(results);
@@ -58,16 +58,22 @@ app.post('/upload', uploader.single('file'), function(req, res) {
                     console.log("uploadphoto to sql results: ", results);
                     res.json({
                         success: true,
-                        url: config.s3url + req.file.filename
+                        url: config.s3url + req.file.filename,
+                        msg: "Upload successful"
                     });
                 });
         }).catch((err) => {
             console.log("error in upload to s3 ", err);
+            res.json({
+                success: false,
+                msg: "error uploading to AWS S3",
+            });
         });
     } else {
-        console.log("err in /upload post");
+        console.log("no file attached");
         res.json({
-            success: false
+            success: false,
+            msg: "No file attached"
         });
     }
 });
@@ -77,7 +83,6 @@ app.get('/singleImage/:id', (req, res) => {
     console.log("in route single/image/id");
     db.getSingleImage(req.params.id)
         .then((results) => {
-            console.log("single image result: ", results);
             res.json(results[0]);
         }).catch((err) => {
             console.log("error in get singleImage route ", err);
@@ -87,7 +92,7 @@ app.get('/singleImage/:id', (req, res) => {
 
 //ADD COMMENTS FOR SINGLE IMAGE
 app.post('/singleImage/:id/addComment', (req, res) => {
-    console.log("********", req.params.imageId, req.body.user, req.body.comment);
+    console.log("********", req.params.id, req.body.user, req.body.comment);
     db.addComment(req.params.imageId, req.body.user, req.body.comment).then(() => {
         res.json({
             success: true
@@ -121,4 +126,4 @@ app.get('*', (req, res) => {
 
 
 // START APP
-app.listen(process.env.PORT || 8080, () => console.log(`imageboard listening`));
+app.listen(process.env.PORT || 8080, () => console.log(`imageboard listening at 8080`));

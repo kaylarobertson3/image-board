@@ -1,25 +1,24 @@
 <!-- Recent images controller -->
-<!-- Title -->
 <div id="main">
-<div class="notMenuBody" ng-controller="recentImages">
-     <div class="cardsContainer">
-         <h1 class="mainTitle">images</h1>
-        <div class="cards" ng-if="images.length > 0">
-            <div class="card" ng-repeat="image in images">
-                <a ui-sref="singleImage({ imageId: {{image.id}} } )">
-                    <img class="imgpic" src="{{image.image}}" alt="{{image.username}}'s photo" />
-                    <div class="desc">
-                        <h2 class="title">{{image.title}}</h2>
-                        <p class="description">{{image.description}}</p>
-                        <h3 class="username">Uploaded by <span>{{image.username}}</span></h2>
-                </a>
-                    </div>
+    <div class="notMenuBody" ng-controller="recentImages">
+        <h1 class="mainTitle">u-bahn typography appreciation</h1>
+        <h2 class="subhead">Make your way through the 173. Have a picture of your favorite stop?<a ui-sref="upload">Upload your own here</a></h2>
+         <div class="cardsContainer">
+            <div class="cards" ng-if="images.length > 0">
+                <div class="card" ng-repeat="image in images">
+                    <a ui-sref="singleImage({ imageId: {{image.id}} } )">
+                        <img class="imgpic" src="{{image.image}}" alt="{{image.username}}'s photo" />
+                        <div class="desc">
+                            <h2 class="title">{{image.title}}</h2>
+                            <p class="description">{{image.description}}</p>
+                            <h3 class="username">Uploaded by <span>{{image.username}}</span></h2>
+                    </a>
+                        </div>
+                </div>
             </div>
+            <!-- <div class="moreButton">
+                <button id="more" class='more'>More</button>
+            </div> -->
         </div>
-        <div class="moreButton">
-        <button id="more" class='more'>More</button>
     </div>
-    </div>
-    <!-- Pagination -->
-</div>
 </div>

@@ -2,41 +2,40 @@
 <div id="main">
     <div id="singleImage" ng-controller="singleImage">
         <div id="singleImageWrapper">
-        <div class="close hover">
-            <a ui-sref="recentImages"><i id="close" class="fa fa-times-circle"  aria-hidden="true"></i>Close</a>
-        </div>
-        <h1 class="singleImageTitle">{{ title }}</h1>
-        <p class="singleImageUsername">Uploaded by <span class="usernameBold">{{ username }}</span></p>
-        <p class="singleImageDesc">{{description}}</p>
-        <img src= "{{ singleImage }}" >
-        <br />
-        <br />
-
-<br />
-<br />
-<hr>
-<br />
-<br />
-
-
-    <div id="comments" ng-controller="addComment">
-        <p>Add a comment</p>
-        <form method="post" id="commentForm" ng-submit="addComment()">
-            <input ng-model="user" type="text" maxlength="40" name="username" placeholder="your name" value="" />
-            <input class="commentInput" ng-model="comment" type="text" maxlength="400" name="comment" placeholder="Comment here..." value="" />
-            <button class="commentButton" type="submit" ng-click="refresh()">Comment</button>
-        </form>
-        <div id="allComments" ng-controller="getComments">
-            <div class="comment" ng-if="comments.length > 0" ng-repeat="comment in comments">
-                <h1 ="commentsH1">Comments</h1>
-                <p class="commentsDate">Commented at: {{comment.created_at}}</p>
-                <p class="commentsUsername">Username: {{comment.username}}</p>
-                <p class="commentsComment">{{err}}</p>
+            <div class="close hover">
+                <a ui-sref="recentImages"><i id="close" class="fa fa-times-circle"  aria-hidden="true"></i>Close</a>
             </div>
-        </div>
-    </div>
+            <h1 class="singleImageTitle">{{ title }}</h1>
+            <p class="singleImageUsername">Uploaded by <span class="usernameBold">{{ username }}</span></p>
+            <p class="singleImageDesc">{{description}}</p>
+            <img src="{{ singleImage }}">
 
-        <h2>{{err}}</h2>
+            <br />
+
+
+            <div id="comments" ng-controller="addComment">
+                <div id="allComments" ng-controller="getComments">
+                    <div class="comment" ng-if="comments.length > 0" ng-repeat="comment in comments">
+                        <h1="commentsH1">Comments</h1>
+                        <!-- <p class="commentsDate">Commented at: {{comment.created_at}}</p> -->
+                        <p class="commentsUsername">{{comment.username}} said:</p>
+                        <p class="commentsComment">{{comment.comment}}</p>
+                    </div>
+                </div>
+
+                <br />
+                <br />
+
+                <p>Add a comment:</p>
+                <form method="post" id="commentForm" ng-submit="addComment()">
+                    <input ng-model="user" type="text" maxlength="40" name="username" placeholder="Name" value="" />
+                    <input class="commentInput" ng-model="comment" type="text" maxlength="400" name="comment" placeholder="Comment here..." value="" />
+                    <button class="commentButton" type="submit" ng-click="refresh()">Comment</button>
+                </form>
+
+            </div>
+
+            <h2>{{err}}</h2>
         </div>
     </div>
 </div>
