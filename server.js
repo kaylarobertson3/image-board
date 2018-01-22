@@ -91,14 +91,18 @@ app.get('/singleImage/:id', (req, res) => {
 
 //ADD COMMENTS FOR SINGLE IMAGE
 app.post('/singleImage/:id/addComment', (req, res) => {
-    console.log("app.post addcomment", req.body.imageId, req.body.user, req.body.comment);
-    db.addComment(req.body.imageId, req.body.user, req.body.comment).then(() => {
-
+    db.addComment(req.body.imageId, req.body.user, req.body.comment).then((results) => {
         res.json({
-            success: true
+            success: true,
+            msg: "Comment added successfully",
+            results: results
         });
     }).catch((err) => {
         ("error in add comment server post route", err);
+        res.json({
+            success: false,
+            msg: "Error adding comment"
+        });
     });
 });
 
@@ -113,7 +117,6 @@ app.get('/singleImage/:id/addComment', (req,res) => {
             console.log("error in get comments get route ", err);
         });
 });
-
 
 
 // SPA ROUTE

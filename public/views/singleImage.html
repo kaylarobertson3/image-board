@@ -12,15 +12,13 @@
 
             <br />
 
-
             <div id="comments" ng-controller="addComment">
                 <div id="allComments" ng-controller="getComments">
+                    <h1="commentsH1">Comments</h1>
                     <div class="comment" ng-if="comments.length > 0" ng-repeat="comment in comments">
-                        <h1="commentsH1">Comments</h1>
-                        <!-- <p class="commentsDate">Commented at: {{comment.created_at}}</p> -->
-                        <p class="commentsUsername">{{comment.username}} said:</p>
-                        <p class="commentsComment">{{comment.comment}}</p>
+                            <p  class="commentsComment"><span class="commentsUsername">{{comment.username}} said: </span>{{comment.comment}}</p>
                     </div>
+                    <p class="commentsComment"><span class="commentsUsername">{{newComment}} said: </span>{{newUsername}}</p>
                 </div>
 
                 <br />
@@ -32,10 +30,9 @@
                     <input class="commentInput" ng-model="comment" type="text" maxlength="400" name="comment" placeholder="Comment here..." value="" />
                     <button class="commentButton" type="submit" ng-click="refresh()">Comment</button>
                 </form>
-
+                <br />
+                <hp class="msg">{{msg}}</p>
             </div>
-
-            <h2>{{err}}</h2>
         </div>
     </div>
 </div>

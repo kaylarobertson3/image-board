@@ -116,13 +116,18 @@ location.hash = ('/');
                     imageId, user, comment
                 }
             })
-                .then(results => {
-                    console.log("results of addcoment controller", results);
-                    $scope.imageId = results.data.imageId;
-                    $scope.comments = results.data;
+                .then(response => {
+                    console.log("script.js ** addcomment response,", response.data.results);
+                    var msg = response.data.msg;
+                    $scope.msg = msg;
+                    // $scope.imageId = response.data.imageId;
+                    // $scope.comments = response.data;
+                    $scope.newComment = response.data.results.comment;
+                    $scope.newUsername = response.data.results.username;
+
                 }).catch(err => {
                     console.log("error in add comment controller", err);
-                    $scope.err = "there is an error";
+                    $scope.msg = "error adding comment";
                 });
         };
     });
