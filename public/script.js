@@ -67,7 +67,6 @@ location.hash = ('/');
                     $scope.description = '';
                 }).catch(function onError(response) {
                     //handle error
-                    console.log("error uploading photo: ", response);
                     var msg = "error uploading photo: " + response.err;
                     $scope.msg = msg;
                 });
@@ -108,25 +107,20 @@ location.hash = ('/');
             var user = $scope.user;
             var comment = $scope.comment;
             var imageId = $stateParams.imageId;
-            console.log('about to comment with', imageId, user, comment);
             $http({
-                url: "/singleImage/${imageId}/addComment", //should i add + $stateParams.imageId?
+                url: "/singleImage/${imageId}/addComment",
                 method: 'POST',
                 data: {
                     imageId, user, comment
                 }
             })
                 .then(response => {
-                    console.log("script.js ** addcomment response,", response.data.results);
                     var msg = response.data.msg;
                     $scope.msg = msg;
-                    // $scope.imageId = response.data.imageId;
-                    // $scope.comments = response.data;
                     $scope.newComment = response.data.results.comment;
                     $scope.newUsername = response.data.results.username;
 
                 }).catch(err => {
-                    console.log("error in add comment controller", err);
                     $scope.msg = "error adding comment";
                 });
         };
@@ -140,7 +134,6 @@ location.hash = ('/');
             method: 'GET'
         })
             .then(res => {
-                console.log("getting these comments: ", res.data);
                 $scope.comments = res.data;
             })
             .catch(err => {

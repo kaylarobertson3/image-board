@@ -55,7 +55,6 @@ app.post('/upload', uploader.single('file'), function(req, res) {
         s3.uploadToS3(req.file).then(function() {
             db.uploadPhoto(req.body.title, req.body.username, req.file.filename, req.body.description)
                 .then(results => {
-                    console.log("upload succesful");
                     res.json({
                         success: true,
                         url: config.s3url + req.file.filename,
@@ -111,7 +110,6 @@ app.post('/singleImage/:id/addComment', (req, res) => {
 app.get('/singleImage/:id/addComment', (req,res) => {
     db.getComments(req.params.id)
         .then((results) => {
-            console.log("app.get these comments ", results);
             res.json(results);
         }).catch((err) => {
             console.log("error in get comments get route ", err);

@@ -43,7 +43,6 @@ exports.getSingleImage = function(id) {
 
 //ADD Comment
 exports.addComment = function(imageId, username, comment) {
-    console.log("=====Inside db.addComment with:", imageId, username, comment);
     return db.query(`INSERT INTO comments (imageId, username, comment) VALUES ($1, $2, $3) RETURNING *`, [imageId, username, comment])
         .then((results) => {
             return results.rows[0];
@@ -57,7 +56,6 @@ exports.addComment = function(imageId, username, comment) {
 exports.getComments = function(imageId) {
     return db.query(`SELECT * FROM comments WHERE imageId = $1`, [imageId]
     ).then((results) => {
-        console.log("results from getComments db: ", results.rows);
         return results.rows;
     }).catch((err) => {
         console.log("error in getComments db", err);
