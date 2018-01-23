@@ -1,5 +1,7 @@
 var spicedPg = require('spiced-pg');
 const db = spicedPg(process.env.DATABASE_URL || `postgres:postgres:postgres:psql@localhost:5432/images`);
+
+
 const config = require("./config.json");
 
 
