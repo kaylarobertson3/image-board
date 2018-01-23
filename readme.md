@@ -1,7 +1,8 @@
-AWS S3
-# Image board for photos of Berlin's U-Bahn typography
+# Typography along Berlin's U-Bahn
 
-View full project online **[coming soon]().**
+Mock-Instagram image board for uploading and commenting on photos of cool typography in U-Bahn stations.
+
+View full project online **[here](https://u-bahn-typography.herokuapp.com/).**
 
 ## Technologies
 * **Language**: JavaScript
@@ -9,6 +10,5 @@ View full project online **[coming soon]().**
 * **Backend**: Node.js, Express.js,
 * **Databases:**: PostgreSQL, AWS S3
 
-## Description
-
-## Features in progress
+<!-- ## Features in progress -->
+* Redis and CSURF

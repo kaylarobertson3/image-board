@@ -57,6 +57,10 @@ html {
     .mainTitle {
         font-size: 20px;
     }
+
+    .subhead {
+        font-size: 18px;
+    }
 }
 
 
@@ -472,6 +476,10 @@ footer {
     .commentInput {
         width: 100px;
     }
+
+    .mainTitle {
+        margin-top: 2rem;
+        }
 }
 
 @media screen and (max-width: 300px) {
