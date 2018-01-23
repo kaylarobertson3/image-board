@@ -2,9 +2,7 @@
 
 <head>
     <title>Berlin Tyopgraphy</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.2/angular-ui-router.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="https://fonts.googleapis.com/css?family=Barlow:300,400,600,700,900" rel="stylesheet">
     <link rel="stylesheet" href="/style.css">
     <link rel="icon" type="image/png" href="./favicon-camera-retro.ico">
@@ -18,42 +16,30 @@
 
         <div id="allFlex">
 
-            <!-- Opens menu -->
-            <div class="opensMenu">
-                <img id="menu-icon" class="hover" src="/menu.svg" alt="menu" /></img>
+            <!-- New menu -->
+            <div class="nav">
+                <ul>
+                    <li><a ui-sref="recentImages">Home</a></li>
+                    <li><a ui-sref="upload">Upload</a></li>
+                    <li><a ui-sref="about">About</a></li>
+                </ul>
             </div>
 
-            <!-- Hidden menu -->
-            <div id="menu">
-                <a href="#" class="hover secondx"><i class="fa fa-times-circle fa-1x"  aria-hidden="true"></i></a>
-                <div class="nav">
-                    <p class="navList">
-                        <a ui-sref="recentImages">home</a>
-                    </p>
-                    <p class="navList">
-                        <a ui-sref="about">about</a>
-                    </p>
-                    <p class="navList">
-                        <a ui-sref="upload">upload</a>
-                    </p>
-                </div>
-            </div>
-
-            <div class="views" ui-view="main">
-
-        </div>
+            <div class="views" ui-view="main"></div>
 
         <!-- Footer -->
         <footer>
             <a href="http://kaylarobertsondesign.com/">
-                <p class="hover">&copy; Kayla Robertson 2017</p>
+                <p><span class="link">&copy; Kayla Robertson 2017</span></p>
             </a>
         </footer>
 
     </div>
 
 </div>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.2/angular-ui-router.min.js"></script>
     <script src="https://use.fontawesome.com/a458eb80ec.js"></script>
     <script src="./routes.js"></script>
     <script src="./script.js"></script>

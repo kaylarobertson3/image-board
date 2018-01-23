@@ -5,16 +5,20 @@
             <div class="close hover">
                 <a ui-sref="recentImages"><i id="close" class="fa fa-times-circle"  aria-hidden="true"></i>Close</a>
             </div>
-            <h1 class="singleImageTitle">{{ title }}</h1>
-            <p class="singleImageUsername">Uploaded by <span class="usernameBold">{{ username }}</span></p>
-            <p class="singleImageDesc">{{description}}</p>
+            <br />
             <img src="{{ singleImage }}">
+            <br />
+            <br />
+            <h1 class="singleImageTitle">{{ title }}</h1>
+            <p class="singleImageDesc">{{description}}</p>
+            <p class="singleImageUsername">Uploaded by <span class="usernameBold">{{ username }}</span></p>
 
+            <br />
             <br />
 
             <div id="comments" ng-controller="addComment">
                 <div id="allComments" ng-controller="getComments">
-                    <h1="commentsH1">Comments</h1>
+                    <h1 class="singleImageTitle">Comments</h1>
                     <div class="comment" ng-if="comments.length > 0" ng-repeat="comment in comments">
                             <p  class="commentsComment"><span class="commentsUsername">{{comment.username}} said: </span>{{comment.comment}}</p>
                     </div>
@@ -23,7 +27,7 @@
                 <br />
                 <br />
 
-                <p>Add a comment:</p>
+                <h1 class="singleImageTitle">Add a comment:</h1>
                 <form method="post" id="commentForm" ng-submit="addComment()">
                     <input ng-model="user" type="text" maxlength="40" name="username" placeholder="Name" value="" />
                     <input class="commentInput" ng-model="comment" type="text" maxlength="400" name="comment" placeholder="Comment here..." value="" />
