@@ -34,6 +34,7 @@ html {
     display: none;
 }
 #main {
+    margin-top: 2rem;
     height: 100%;
 }
 
@@ -48,6 +49,9 @@ html {
     text-transform: uppercase;
 }
 
+.subhead {
+    margin: 0 4rem 0 4rem;
+}
 
 @media screen and (max-width: 699px) {
     .mainTitle {
@@ -355,7 +359,7 @@ input {
 }
 
 .chooseFile {
-    margin: 2rem 0 0 0;
+    margin: 0rem 0 0 0;
     padding: 5px 0 0 0;
 }
 
