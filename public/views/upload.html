@@ -1,6 +1,7 @@
 <!-- upload controller -->
 <div class="upload" ng-controller="upload">
     <h1 class="mainTitle">upload</h1>
+    <h2 class="subhead">*Note: Upload form temporarily disabled while site is unmoderated.* </h2>
     <form method="post" ng-submit="submit()">
         <div class="upload-form">
             <input ng-model="title" type="text" name="title" placeholder="title" value="" />
@@ -10,8 +11,8 @@
         <h2 class="msg">{{msg}}</h2>
         <br />
         <div class="upload-form">
-            <input class="chooseFile" ng-model="file" type="file" name="file" placeholder="file" value="" />
-            <button class="more" type="submit" name="button">Upload</button>
+            <!-- <input class="chooseFile" ng-model="file" type="file" name="file" placeholder="file" value="" />
+            <button class="more" type="submit" name="button">Upload</button> -->
         </div>
     </form>
 </div>
