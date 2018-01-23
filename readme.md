@@ -14,7 +14,7 @@ View full project online **[here](https://u-bahn-typography.herokuapp.com/).**
 
 ## Preview
 
-![Image Board Preview](https://github.com/kaylarobertson3/image-board/blob/master/image-board-preview.gif
+![Image Board Preview](https://github.com/kaylarobertson3/image-board/blob/master/newppreview2.gif
  "Image Board Preview")
 
 <!-- ## Features in progress -->
