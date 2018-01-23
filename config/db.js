@@ -1,6 +1,7 @@
 var spicedPg = require('spiced-pg');
-var db = spicedPg(`postgres:postgres:postgres:psql@localhost:5432/images`);
+const db = spicedPg(process.env.DATABASE_URL || `postgres:postgres:postgres:psql@localhost:5432/images`);
 const config = require("./config.json");
+
 
 
 // Get photo info from SQL
