@@ -17,6 +17,6 @@ View full project online **[here](https://u-bahn-typography.herokuapp.com/).**
 ![Image Board Preview](https://github.com/kaylarobertson3/image-board/blob/master/newppreview2.gif
  "Image Board Preview")
 
-<!-- ## Features in progress -->
+## Features in progress
 * Better title and description layout for mobile (right now it's hidden until the single image page)
 * Redis and CSURF
